@@ -250,6 +250,28 @@ mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
       });
     });
 
-document.body.addEventListener("click", function() {
-    responsiveVoice.speak("manoaj is a bitch");
-});
+var textData = document.createElement("div");
+var minandmax = "Max: 71.2 &#10;Min:53.3"
+textData.innerHTML = minandmax;
+document.body.appendChild(textData);
+textData.style.display = "none";
+textData.style.fontSize = "xx-large"; 
+var toggleGraph = document.createElement("button");
+toggleGraph.innerHTML = "Click for Graph Details"
+
+toggleGraph.onclick = function() {
+    var svgElement = document.getElementsByTagName("svg")[0]
+    if (svgElement.style.display === "none") {
+        svgElement.style.display = "block";
+        toggleGraph.innerHTML = "Click for Graph Details"
+        textData.style.display = "none";
+    } else {
+        svgElement.style.display = "none";
+        textData.style.display = "block"
+        toggleGraph.innerHTML = "Click to Show Graph"
+        responsiveVoice.speak("The maximum is 71.2 degrees Fahrenheit and the minimum is 53.3 degrees Fahrenheit.");;
+    }
+};
+document.body.appendChild(toggleGraph);
+
+
