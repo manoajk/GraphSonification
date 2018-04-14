@@ -251,11 +251,12 @@ mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
     });
 
 var textData = document.createElement("div");
-var minandmax = "Max: 71.2 &#10;Min:53.3"
+var minandmax = "Max: 71.2\nMin: 53.3 Mean: 65.4 STD: 2.24 "
 textData.innerHTML = minandmax;
+
 document.body.appendChild(textData);
 textData.style.display = "none";
-textData.style.fontSize = "xx-large"; 
+textData.style.fontSize = "160px"; 
 var toggleGraph = document.createElement("button");
 toggleGraph.innerHTML = "Click for Graph Details"
 
@@ -269,7 +270,8 @@ toggleGraph.onclick = function() {
         svgElement.style.display = "none";
         textData.style.display = "block"
         toggleGraph.innerHTML = "Click to Show Graph"
-        responsiveVoice.speak("The maximum is 71.2 degrees Fahrenheit and the minimum is 53.3 degrees Fahrenheit.");;
+        responsiveVoice.speak("The mean is 65.4 degrees Fahrenheit and Standard Deviation is 4.4 degrees fahrenheit.");
+        responsiveVoice.speak("The maximum is 71.2 degrees Fahrenheit and the minimum is 53.3 degrees Fahrenheit.");
     }
 };
 document.body.appendChild(toggleGraph);
