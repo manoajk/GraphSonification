@@ -76,7 +76,8 @@ var legend = svg.selectAll('g')
     .data(cities)
     .enter()
     .append('g')
-    .attr('class', 'legend');
+    .attr('class', 'legend')
+    .style("font-size", "20px");
 
 legend.append('rect')
     .attr('x', width - 20)
@@ -92,11 +93,13 @@ legend.append('text')
 
 svg.append("g")
     .attr("class", "x axis")
+    .style("font-size", "15px")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
 
 svg.append("g")
     .attr("class", "y axis")
+    .style("font-size", "20px")
     .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
@@ -148,14 +151,15 @@ var mousePerLine = mouseG.selectAll('.mouse-per-line')
     .attr("class", "mouse-per-line");
 
 mousePerLine.append("circle")
-    .attr("r", 7)
+    .attr("r", 20)
     .style("stroke", function(d) { return color(d.name); })
     .style("fill", "none")
-    .style("stroke-width", "1px")
+    .style("stroke-width", "5px")
     .style("opacity", "0");
 
 mousePerLine.append("text")
-    .attr("transform", "translate(10,3)");
+    .style("font-size", "20px")
+    .attr("transform", "translate(28,8)");
 
 mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
     .attr('width', width) // can't catch mouse events on a g element
