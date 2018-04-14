@@ -278,3 +278,7 @@ mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
         return "translate(" + mouse[0] + "," + pos.y +")";
       });
     });
+
+document.body.addEventListener("click", function() {
+    responsiveVoice.speak("manoaj is a bitch");
+});
