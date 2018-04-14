@@ -81,15 +81,21 @@ var instruments = ['piano', 'organ', 'acoustic', 'edm'];
 
 testInstance === Synth; // true
 
-function playNote(dataPoint) {
+function playNote(dataPoint, min, max) {
 	// octave = oct[Math.floor(dataPoint/noteTypes.length)]
 	// note = noteTypes[dataPoint % noteTypes.length]
 	// console.log("Data point: " + dataPoint + " octave " + oct + " note " + note + " tyr this " + Math.floor(dataPoint/noteTypes.length));
 	// Synth.play(instruments[0], note, octave, 2);
 	octave = Math.floor(dataPoint / majorNotes.length) % oct + 2
 	note = majorNotes[dataPoint % majorNotes.length]
+	if(min != 0 || max != 0) {
+		Synth.play(instruments[2], note, octave, 1);
+		Synth.setVolume(1.00);
+	} else {
+		Synth.setVolume(.2);
+		Synth.play(instruments[0], note, octave, 2);
+	}
 	// console.log("Data point: " + dataPoint + " octave " + octave + " note " + note + " tyr this " + Math.floor(dataPoint/noteTypes.length));
 	// console.log("MajorNotes Length: " + majorNotes.length + " index " + dataPoint % majorNotes.length)
-	Synth.play(instruments[0], note, octave, 2);
 }
 //Synth.setSampleRate(20000);

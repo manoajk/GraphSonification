@@ -1,3 +1,10 @@
+var maxi = 0;
+var mini = 10000;
+var optima = [0, 0, 0];
+        var point1 = optima[0];
+        var point2 = optima[1];
+        var point3 = optima[2];
+
 var margin = {
     top: 20,
     right: 80,
@@ -205,7 +212,35 @@ mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
         d3.select(this).select('text')
             .text(y.invert(pos.y).toFixed(2));
 
-        playNote(Math.trunc(y.invert(pos.y).toFixed(2)));
+        var min = 0;
+        var max = 0;
+        if (Math.trunc(y.invert(pos.y).toFixed(2)) != point3) {
+            optima.shift();
+            optima.push(Math.trunc(y.invert(pos.y).toFixed(2)));
+            point1 = optima[0];
+            point2 = optima[1];
+            point3 = optima[2];
+            if (point2 > point1 && point2 > point3) {
+                if (point2 >= maxi) {
+                    max = point2;
+                    maxi = max;
+                    console.log("Max" + max);
+                    console.log(point1);
+                    console.log(point2);
+                    console.log(point3);
+                }
+            } else if (point2 < point1 && point2 < point3) {
+                    if (point2 <= mini && point2 != 0) {
+                        min = point2;
+                        mini = min;
+                        console.log("Min" + min);
+                        console.log(point1);
+                        console.log(point2);
+                        console.log(point3);
+                }
+            }
+        }
+        playNote(Math.trunc(y.invert(pos.y).toFixed(2)),min, max);
         
         return "translate(" + mouse[0] + "," + pos.y +")";
       });
