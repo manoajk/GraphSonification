@@ -255,8 +255,25 @@ mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
         d3.select(this).select('text')
             .text(y.invert(pos.y).toFixed(2));
 
-        notes.push([Math.trunc(y.invert(pos.y).toFixed(2) * 10), 4])
-        playMelody()
+        //notes.push([Math.trunc(y.invert(pos.y).toFixed(2) * 10), 4])
+        //playMelody()
+        if (notePos > 9) {
+            notePos = 0;
+        }
+        if (octPos > 4) {
+            octPos = 0;
+        }
+        Synth.play(instruments[0], noteTypes[notePos],oct[octPos],2);
+        counter++
+        if (counter == 100) {
+            notePos++;
+        }
+        if (counter == 25) {
+            octPos++;
+        }
+        console.log(notePos);
+        console.log("DAGFD" + "dgafd   "+octPos);
+        //Synth.play('piano', 'C#', 4, 2);
         
         return "translate(" + mouse[0] + "," + pos.y +")";
       });
