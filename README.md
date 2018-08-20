@@ -20,7 +20,7 @@ We are proud of how were able to create a tool based on constant feedback from C
 We learned that there is so much potential to how we can visualize data using sound, and we also realized that a lot of data could better be shown through sound than normal graphs in some situations. As a result, the findings of this application could even be expanded to sighted people.
 
 ## What's next for SonifEye 
-We actually are really motivated and want to make a difference. We plan on taking what we learned, especially from all of the great challenge experts we spoke to. Next, we plan to add more features to our tool and allow users to customize exactly what they want to see from the data.
+We actually are really motivated and want to make a difference. We plan on taking what we learned, especially from all of the great challenge experts we spoke with. Next, we plan to add more features to our tool and allow users to customize exactly what they want to see from the data.
 
 
 Here is our [DevPost submission](https://devpost.com/software/data-analysis-sonification), check it out!
